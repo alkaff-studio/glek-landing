@@ -1,0 +1,69 @@
+// Required
+@import "./variable-sites/variable-sites";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+@each $color, $value in $theme-colors {
+    .swatch-#{$color} {
+        background-color: $value;
+        color: color-contrast($value);
+    }
+}
+
+// BUTTON FIXER
+.btn-primary {
+    color: white;
+
+    &:hover {
+        color: white;
+    }
+}
+.btn-outline-primary {
+    &:hover {
+        color: white;
+    }
+}
+
+.btn-light {
+    color: $colorPrimary;
+
+    &:hover {
+        background-color: $grayscaleBackground;
+        border-color: $grayscaleBackground;
+        color: $colorPrimaryDark;
+    }
+
+    &:focus {
+        background-color: $grayscaleInputBackground;
+        border-color: $grayscaleInputBackground;
+        color: $colorPrimaryDark;
+    }
+}
+
+.btn-light:not(:disabled):not(.disabled):active,
+.btn-light:not(:disabled):not(.disabled).active,
+.show > .btn-light.dropdown-toggle {
+    background-color: $grayscaleInputBackground;
+    border-color: $grayscaleBackground;
+    color: $colorPrimaryDark;
+}
+
+// BADGE FIXER
+.badge-primary {
+    color: white;
+}
+h1, h2, h3, h4, h5, h6 {
+    .badge-primary {
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.75px;
+    }
+}
+
+// FORM LABEL FIXER
+.col-form-label {
+    color: $grayscaleBody;
+    font-weight: 600;
+    padding-bottom: .5rem;
+}
