@@ -1,0 +1,53 @@
+$typoFontWeights: (
+    '': 400,
+    'bold': 700
+) !default;
+$typoLineHeights: (
+    'display-lg': 66px,
+    'display-md': 50px,
+    'display-sm': 44px,
+    'text-lg': 38px,
+    'text-md': 34px,
+    'text-sm': 28px,
+    'text-xs': 24px
+) !default;
+$typoFontSizes: (
+    'display-lg': 64px,
+    'display-md': 48px,
+    'display-sm': 32px,
+    'text-lg': 24px,
+    'text-md': 18px,
+    'text-sm': 16px,
+    'text-xs': 14px
+) !default;
+$typoLetterSpacings: (
+    'display-lg': 1px,
+    'display-md': 1px,
+    'display-sm': 1px,
+    'text-lg': .75px,
+    'text-md': .75px,
+    'text-sm': .75px,
+    'text-xs': .75px
+) !default;
+
+@function emptyTypoWeight( $val:null ) {
+    @if( $val == null or $val == '' ) {
+        @return '';
+    } @else {
+        @return "-#{$val}";
+    }
+}
+
+@each $key, $val in $typoLineHeights {
+    .typo-#{$key}{
+        line-height: $val;
+        font-size: map-get( $typoFontSizes, $key );
+        letter-spacing: map-get( $typoLetterSpacings, $key );
+    }
+
+    @each $name, $weight in $typoFontWeights {
+        .typo-#{$key}#{emptyTypoWeight($name)} {
+            font-weight: $weight;
+        }
+    }
+}

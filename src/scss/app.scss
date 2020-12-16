@@ -4,10 +4,20 @@
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
-@each $color, $value in $theme-colors {
-    .swatch-#{$color} {
-        background-color: $value;
-        color: color-contrast($value);
+/*--------------------------------------------------------------
+# LAYOUT
+--------------------------------------------------------------*/
+@import "layout/layout";
+
+/*--------------------------------------------------------------
+# ELEMENTS
+--------------------------------------------------------------*/
+@import "elements/typography";
+
+// FIXER
+p {
+    &:last-child {
+        margin-bottom: 0px;
     }
 }
 
@@ -66,4 +76,38 @@ h1, h2, h3, h4, h5, h6 {
     color: $grayscaleBody;
     font-weight: 600;
     padding-bottom: .5rem;
+}
+
+// INPUT GROUP FIXER
+.input-group {
+    .form-control {
+        border-radius: 9999px;
+        background-color: rgba( white, .15 );
+        height: auto;
+        padding-right: 65px;
+        color: white;
+
+        &:focus {
+            background-color: rgba( white, .25 );
+        }
+
+        &:not(:last-child) {
+            border-top-right-radius: 9999px;
+            border-bottom-right-radius: 9999px;
+        }
+
+        &::placeholder {
+            color: rgba( white, .5 );
+        }
+    }
+
+    .input-group-append {
+        margin-left: -50px;
+
+        .btn {
+            z-index: 3;
+            border-top-left-radius: 9999px;
+            border-bottom-left-radius: 9999px;
+        }
+    }
 }

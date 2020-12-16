@@ -35,12 +35,12 @@ const IndexPage: React.FC = () => (
     <h5>
       <span className="badge badge-primary">Primary</span>
     </h5>
-    <label for="exampleInputEmail1" className="col-form-label">Email address</label>
+    <label htmlFor="exampleInputEmail1" className="col-form-label">Email address</label>
     <input type="text" className="form-control form-control-sm" placeholder="Nama Lengkap"/>
     <input type="text" className="form-control" placeholder="Nama Lengkap"/>
     <input type="text" className="form-control form-control-lg" placeholder="Nama Lengkap"/>
     <a href="#">Watch video</a>
-    <p className="text-primary-dark">Text Color Primary</p>
+    <p className="text-primary-dark text-display-lg">Text Color Primary</p>
   </Layout>
 )
 
