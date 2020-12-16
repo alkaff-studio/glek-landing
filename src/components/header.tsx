@@ -1,42 +1,34 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import React, { MouseEventHandler } from "react"
+import Image from "./img"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+interface HeaderProp {
+	siteTitle?: string,
+	buttonWhite: boolean
 }
 
-Header.defaultProps = {
-  siteTitle: ``,
+const Header = ({ siteTitle, buttonWhite = false }: HeaderProp) => {
+	const buttonClass = buttonWhite ? 'btn-light' : 'btn-primary';
+	const onButtonClick = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+		console.log("Button clicked!")
+	}
+	return (
+		<header className="header">
+			<div className="container">
+				<div className="row justify-content-space-between">
+					<div className="col">
+						<div style={{ maxWidth: `95px` }}>
+							<Image src="logo.png" />
+						</div>
+					</div>
+					<div className="col">
+						<div className="text-right">
+							<button className={ "btn " + buttonClass } onClick={onButtonClick}>Kontak Glek</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+	)
 }
 
 export default Header
