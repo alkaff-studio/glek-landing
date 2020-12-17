@@ -3,6 +3,7 @@ import { PageProps, Link, graphql } from "gatsby"
 
 import Layout from '../components/layout'
 import SEO from "../components/seo"
+import { sendMail } from "../components/mailer"
 
 const IndexPage: React.FC = () => (
   <Layout>
@@ -10,7 +11,7 @@ const IndexPage: React.FC = () => (
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
-    <button className="btn btn-primary btn-sm">Primary</button>
+    <button className="btn btn-primary btn-sm" onClick={sendMail}>Primary</button>
     <button className="btn btn-secondary btn-sm">Secondary</button>
     <button className="btn btn-light btn-sm">Light</button>
     <button className="btn btn-outline-primary btn-sm">Primary</button>

@@ -1,0 +1,16 @@
+{
+    "name": "ak-mailchimp",
+    "version": "1.0.0",
+    "description": "Mailchimp plugin for sending subscribe data",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "echo \"No build script setup\""
+    },
+    "keywords": [
+        "gatsby",
+        "gatsby-plugin"
+    ],
+    "author": "Ahmad Faris <isfawwaz@gmail.com>",
+    "license": "0BSD"
+}
