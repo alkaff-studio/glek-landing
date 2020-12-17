@@ -3,7 +3,7 @@ import Image from "./img"
 
 interface HeaderProp {
 	siteTitle?: string,
-	buttonWhite: boolean
+	buttonWhite?: boolean
 }
 
 const Header = ({ siteTitle, buttonWhite = false }: HeaderProp) => {
@@ -16,7 +16,7 @@ const Header = ({ siteTitle, buttonWhite = false }: HeaderProp) => {
 			<div className="container">
 				<div className="row justify-content-space-between">
 					<div className="col">
-						<div style={{ maxWidth: `95px` }}>
+						<div className="logo-wrapper">
 							<Image src="logo.png" />
 						</div>
 					</div>
