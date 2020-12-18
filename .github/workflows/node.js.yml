@@ -23,3 +23,10 @@ jobs:
       
     - name: Build
       run: yarn build
+  
+    - name: Slack Notification
+      if: failure()
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_USERNAME: FulanBot
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
