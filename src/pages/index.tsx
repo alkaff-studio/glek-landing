@@ -7,6 +7,7 @@ import SectionJumbotron from "../sections/jumbotron"
 import SectionAbout from "../sections/about"
 import SectionVisionMision from "../sections/vision"
 import SectionProduct from "../sections/product"
+import SectionPartner from "../sections/partner"
 
 const IndexPage: React.FC = () => (
   <Layout invertButton={true}>
@@ -15,6 +16,7 @@ const IndexPage: React.FC = () => (
     <SectionAbout />
     <SectionVisionMision />
     <SectionProduct />
+    <SectionPartner />
   </Layout>
 )
 
