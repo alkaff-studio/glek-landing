@@ -1,4 +1,4 @@
-import React from "react"
+import React, { createRef } from "react"
 import { PageProps, Link, graphql } from "gatsby"
 
 import Layout from '../components/layout'
@@ -11,8 +11,19 @@ import SectionPartner from "../sections/partner"
 import { SectionSemangat } from "../sections/semangat"
 import { SectionContact } from "../sections/contact"
 
-const IndexPage: React.FC = () => (
-  <Layout invertButton={true}>
+class IndexPage extends React.Component {
+  private contactRef = createRef<HTMLDivElement>()
+
+  constructor(props:any) {
+    super(props)
+  }
+
+  scrollToContact = () => {
+    this.contactRef.current?.scrollIntoView()
+  }
+
+  render() {
+    return <Layout invertButton={true} onButtonClicked={this.scrollToContact}>
     <SEO title="Halaman Utama" />
     <SectionJumbotron />
     <SectionAbout />
@@ -20,8 +31,9 @@ const IndexPage: React.FC = () => (
     {/* <SectionProduct /> */}
     <SectionPartner />
     <SectionSemangat />
-    <SectionContact address="Jln Kebagusan Raya No.102 Jagakarsa,<br />Jakarta Selatan" email="cs@glek.id" phone="+62 8577-9155-550" />
+    <SectionContact  ref={this.contactRef} address="Jln Kebagusan Raya No.102 Jagakarsa,<br />Jakarta Selatan" email="cs@glek.id" phone="+62 8577-9155-550" />
   </Layout>
-)
+  }
+}
 
 export default IndexPage

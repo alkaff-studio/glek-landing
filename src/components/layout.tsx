@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { MouseEventHandler } from 'react'
 import PropTypes from "prop-types"
 import { graphql, useStaticQuery } from "gatsby"
 
@@ -8,10 +8,11 @@ import Footer from './footer'
 interface Props {
 	children?: any,
 	showButton?: boolean,
-	invertButton?: boolean
+	invertButton?: boolean,
+	onButtonClicked?: MouseEventHandler<React.MouseEvent<HTMLButtonElement, MouseEvent>>
 }
 
-const Layout = ({children, showButton, invertButton}:Props) => {
+const Layout = ({children, showButton, invertButton, onButtonClicked}:Props) => {
 	const data = useStaticQuery(graphql`
 		query SiteTitleQuery {
 			site {
@@ -24,7 +25,7 @@ const Layout = ({children, showButton, invertButton}:Props) => {
 
 	return (
 		<>
-			<Header siteTitle={data.site.siteMetadata?.title || `Title`} buttonWhite={invertButton} />
+			<Header siteTitle={data.site.siteMetadata?.title || `Title`} buttonWhite={invertButton} onButtonClicked={onButtonClicked} />
 			<main>{children}</main>
 			<Footer />
 		</>
