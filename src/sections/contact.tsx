@@ -5,8 +5,11 @@ import React from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 import Iframe from 'react-iframe';
 import * as yup from 'yup'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 const parse = require('html-react-parser');
+const MySwal = withReactContent(Swal)
 
 interface SectionContactProps extends React.HTMLAttributes<HTMLElement>{
     address: string,
@@ -53,10 +56,27 @@ export const SectionContact = React.forwardRef<HTMLDivElement, SectionContactPro
                         message: ''
                     }
                 })
+                MySwal.fire({
+                    title: "Berhasil!",
+                    icon: "info",
+                    html: '<p class="typo-gray-label">Pesan Anda berhasil dikirim!</p>'
+                })
                 // this.setState({ status: "SUCCESS" });
                 // console.log("SUCCESS")
                 isDisabled = false
             } else {
+                MySwal.fire({
+                    title: "Gagal",
+                    icon: "error",
+                    html: '<p class="typo-gray-label">Sepertinya ada masalah ketika mengirim pesan Anda, silahkan coba kembali.</p>',
+                    showCancelButton: true,
+                    confirmButtonText: `Coba Lagi`,
+                    cancelButtonText: `Batal`
+                }).then( (result) => {
+                    if( result.isConfirmed ) {
+                        sendMail( values, formikBag )
+                    }
+                })
                 // this.setState({ status: "ERROR" });
                 // console.log("ERROR")
                 isDisabled = false
