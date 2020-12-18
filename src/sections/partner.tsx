@@ -5,10 +5,19 @@ import { Col, Nav, Row, Tab } from 'react-bootstrap'
 import { PartnerContent } from '../components/partner'
 
 import ImgStore from './../images/img-store.svg'
-import BgSectionVm from './../images/bg-section-vm.png'
+import ImgPartnerCafe from './../images/img-partner-cafe.jpg'
+import ImgPartnerOutlet from './../images/img-partner-outlet.jpg'
+import ImgPartnerBooth from './../images/img-partner-booth.jpg'
+import ImgPartnerCountainer from './../images/img-partner-countainer.jpg'
+import Image from '../components/img'
 
 const SectionPartner = () => (
     <section id="section-partner" className="section">
+        <div className="section-element">
+            <div className="element-1">
+                <Image src="el-partner-01.png" />
+            </div>
+        </div>
         <div className="container-fluid px-0">
             <div className="section-title text-center">
                 <h5><span className="badge badge-primary">Glek</span></h5>
@@ -79,22 +88,25 @@ const SectionPartner = () => (
                                     <PartnerContent
                                         title="Cafe Concept"
                                         list={[ "Booth", "Peralatan Komplit", "Bahan Baku", "Seragam", "Marketing Medsos" ]}
-                                        image={BgSectionVm} />
+                                        image={ImgPartnerCafe} />
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="outlet">
                                     <PartnerContent
                                         title="Outlet Concept"
-                                        list={[ "Booth", "Peralatan Komplit", "Bahan Baku", "Seragam", "Marketing Medsos" ]} />
+                                        list={[ "Booth", "Peralatan Komplit", "Bahan Baku", "Seragam", "Marketing Medsos" ]}
+                                        image={ImgPartnerOutlet} />
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="booth">
                                     <PartnerContent
                                         title="Booth Concept"
-                                        list={[ "Booth", "Peralatan Komplit", "Bahan Baku", "Seragam", "Marketing Medsos" ]} />
+                                        list={[ "Booth", "Peralatan Komplit", "Bahan Baku", "Seragam", "Marketing Medsos" ]}
+                                        image={ImgPartnerBooth} />
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="countainer">
                                     <PartnerContent
                                         title="Countainer Concept"
-                                        list={[ "Booth", "Peralatan Komplit", "Bahan Baku", "Seragam", "Marketing Medsos" ]} />
+                                        list={[ "Booth", "Peralatan Komplit", "Bahan Baku", "Seragam", "Marketing Medsos" ]}
+                                        image={ImgPartnerCountainer} />
                                 </Tab.Pane>
                             </Tab.Content>
                         </Col>
