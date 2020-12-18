@@ -8,14 +8,9 @@ interface SectionSemangatProps {
 export const SectionSemangat = () => (
     <section id="section-semangat" className="section">
         <div className="container-fluid px-0">
-            <div className="section-img">
-                <div className="element-1">
-                    <Image src="el-semangat-01.png" />
-                </div>
-            </div>
             <div className="row align-items-center no-gutters">
                 <div className="col-12 col-md-5">
-                    <div className="section-content ml-5 pl-5">
+                    <div className="section-content ml-md-5 pl-md-5">
                         <div className="section-title">
                             <h2><span className="badge badge-primary">#</span></h2>
                             <h4 className="typo-display-md-bold typo-gray-body">Semangat Berbagi Glek</h4>
@@ -31,6 +26,11 @@ export const SectionSemangat = () => (
                 </div>
                 <div className="col-12 col-md-7">
                     <Image src="img-section-semangat.png" />
+                </div>
+            </div>
+            <div className="section-img">
+                <div className="element-1">
+                    <Image src="el-semangat-01.png" />
                 </div>
             </div>
         </div>
