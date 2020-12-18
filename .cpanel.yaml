@@ -1,4 +1,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/u1046124/public_html/
-    - /bin/cp -R public/* $DEPLOYPATH
+    - /bin/cp -R dist/* $DEPLOYPATH
