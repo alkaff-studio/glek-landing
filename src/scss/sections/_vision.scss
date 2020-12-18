@@ -1,0 +1,50 @@
+#section-vision-mission {
+
+    .list-check {
+
+        li {
+            font-size: 16px;
+            line-height: 1.75;
+            letter-spacing: .75px;
+            color: $grayscaleLabel;
+            margin-bottom: 12px;
+            
+            span {
+                display: flex;
+
+                &::before {
+                    content: '\2713';
+                    width: 20px;
+                    height: 20px;
+                    background-color: $colorPrimaryDark;
+                    border-radius: 99999px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: white;
+                    font-size: 12px;
+                    margin-top: 3px;
+                    margin-right: 14px;
+                    flex-shrink: 0;
+                }
+            }
+        }
+
+    }
+
+    .info-section {
+        margin-bottom: 32px;
+    }
+
+    .section-content {
+        padding-top: 13em;
+        padding-bottom: 13em;
+    }
+
+    .section-img {
+        display: block;
+        height: 100%;
+        background: url('../../images/bg-section-vm.png') no-repeat center;
+        background-size: 100%;
+    }
+}
