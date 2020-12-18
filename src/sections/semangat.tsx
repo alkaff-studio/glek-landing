@@ -9,7 +9,7 @@ export const SectionSemangat = () => (
     <section id="section-semangat" className="section">
         <div className="container-fluid px-0">
             <div className="row align-items-center no-gutters">
-                <div className="col-12 col-md-5">
+                <div className="col-12 col-md-5 order-last order-md-first">
                     <div className="section-content ml-md-5 pl-md-5">
                         <div className="section-title">
                             <h2><span className="badge badge-primary">#</span></h2>
@@ -24,7 +24,7 @@ export const SectionSemangat = () => (
                         <Button variant="primary" href="https://www.instagram.com/explore/tags/semangatberbagiglek/" target="_blank">Lihat Hashtag</Button>
                     </div>
                 </div>
-                <div className="col-12 col-md-7">
+                <div className="col-12 col-md-7 order-first order-md-last">
                     <Image src="img-section-semangat.png" />
                 </div>
             </div>
