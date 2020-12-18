@@ -58,7 +58,7 @@ export const SectionContact = React.forwardRef<HTMLDivElement, SectionContactPro
                 })
                 MySwal.fire({
                     title: "Berhasil!",
-                    icon: "info",
+                    icon: "success",
                     html: '<p class="typo-gray-label">Pesan Anda berhasil dikirim!</p>'
                 })
                 // this.setState({ status: "SUCCESS" });
