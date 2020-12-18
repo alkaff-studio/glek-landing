@@ -1,8 +1,10 @@
 import { faEnvelope, faMapMarkerAlt, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Formik, FormikHelpers, FormikValues } from 'formik';
 import React from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 import Iframe from 'react-iframe';
+import * as yup from 'yup'
 
 const parse = require('html-react-parser');
 
@@ -12,7 +14,57 @@ interface SectionContactProps extends React.HTMLAttributes<HTMLElement>{
     phone: string,
 }
 
+const schema = yup.object({
+    name: yup.string().required(),
+    email: yup.string().email().required(),
+    subject: yup.string().required(),
+    message: yup.string()
+})
+
+export const SectionContentWrapper = React.forwardRef((props, ref) => {
+    return <section id="section-contact" className="section" ref={ref}>
+        {props.children}
+    </section> 
+})
+
 export const SectionContact = React.forwardRef<HTMLDivElement, SectionContactProps>( (props, ref) => {
+
+    var isDisabled = false
+
+    const sendMail = (values: FormikValues, formikBag: FormikHelpers<FormikValues>) => {
+        // ev.preventDefault();
+        // const form = ev.target;
+        const data = new FormData();
+        for( var key in values ) {
+            data.append( key, values[key] )
+        }
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://formspree.io/f/mayllwwl");
+        xhr.setRequestHeader("Accept", "application/json");
+        xhr.onreadystatechange = () => {
+            isDisabled = true
+            if (xhr.readyState !== XMLHttpRequest.DONE) return;
+            if (xhr.status === 200) {
+                formikBag.resetForm({
+                    values: {
+                        name: '',
+                        email: '',
+                        subject: '',
+                        message: ''
+                    }
+                })
+                // this.setState({ status: "SUCCESS" });
+                // console.log("SUCCESS")
+                isDisabled = false
+            } else {
+                // this.setState({ status: "ERROR" });
+                // console.log("ERROR")
+                isDisabled = false
+            }
+        };
+        xhr.send(data);
+    }
+
     return <section id="section-contact" className="section" ref={ref}>
     <div className="container">
         <Row>
@@ -51,27 +103,75 @@ export const SectionContact = React.forwardRef<HTMLDivElement, SectionContactPro
             <Col md={6}>
                 <div className="section-content section-form">
                     <h5 className="typo-text-lg-bold typo-primary-dark">Kirimkan Pesan</h5>
-                    <Form>
-                        <Form.Group controlId="name">
-                            <Form.Label>Nama Lengkap</Form.Label>
-                            <Form.Control type="text" placeholder="nama anda" />
-                        </Form.Group>
-                        <Form.Group controlId="email">
-                            <Form.Label>Alamat Email</Form.Label>
-                            <Form.Control type="email" placeholder="nama@domain.com" />
-                        </Form.Group>
-                        <Form.Group controlId="subject">
-                            <Form.Label>Judul</Form.Label>
-                            <Form.Control type="text" placeholder="judul pesan" />
-                        </Form.Group>
-                        <Form.Group controlId="message">
-                            <Form.Label>Pesan</Form.Label>
-                            <Form.Control as="textarea" placeholder="isi pesan" rows={3} />
-                        </Form.Group>
-                        <div className="text-right">
-                            <Button variant="primary" size="sm" type="submit">Kirim Pesan</Button>
-                        </div>
-                    </Form>
+                    <Formik validationSchema={schema}
+                        onSubmit={sendMail}
+                        initialValues={{}}>
+                        {({
+                            handleSubmit,
+                            handleChange,
+                            handleBlur,
+                            values,
+                            touched,
+                            isValid,
+                            errors,
+                        }) => (
+                            <Form noValidate action="https://formspree.io/f/mayllwwl" method="POST" onSubmit={handleSubmit}>
+                                <Form.Group controlId="name">
+                                    <Form.Label>Nama Lengkap</Form.Label>
+                                    <Form.Control type="text" 
+                                        placeholder="nama anda" 
+                                        value={values.name}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        isInvalid={ touched.name && errors.name }
+                                        required
+                                        readOnly={isDisabled} />
+                                    <Form.Control.Feedback type="invalid">
+                                        {errors.name}
+                                    </Form.Control.Feedback>
+                                </Form.Group>
+                                <Form.Group controlId="email">
+                                    <Form.Label>Alamat Email</Form.Label>
+                                    <Form.Control type="email"
+                                        placeholder="nama@domain.com"
+                                        value={values.email}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        isInvalid={touched.email && errors.email}
+                                        required
+                                        readOnly={isDisabled} />
+                                    <Form.Control.Feedback type="invalid">
+                                        {errors.email}
+                                    </Form.Control.Feedback>
+                                </Form.Group>
+                                <Form.Group controlId="subject">
+                                    <Form.Label>Judul</Form.Label>
+                                    <Form.Control type="text" placeholder="judul pesan"
+                                        value={values.subject}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        isInvalid={touched.subject && errors.subject}
+                                        required
+                                        readOnly={isDisabled} />
+                                    <Form.Control.Feedback type="invalid">
+                                        {errors.subject}
+                                    </Form.Control.Feedback>
+                                </Form.Group>
+                                <Form.Group controlId="message">
+                                    <Form.Label>Pesan</Form.Label>
+                                    <Form.Control as="textarea" placeholder="isi pesan" rows={3}
+                                        value={values.message}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        required
+                                        readOnly={isDisabled} />
+                                </Form.Group>
+                                <div className="text-right">
+                                    <Button variant="primary" size="sm" type="submit" disabled={isDisabled}>Kirim Pesan</Button>
+                                </div>
+                            </Form>
+                        )}
+                    </Formik>
                 </div>
             </Col>
         </Row>
