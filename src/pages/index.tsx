@@ -17,7 +17,7 @@ const IndexPage: React.FC = () => (
     <SectionJumbotron />
     <SectionAbout />
     <SectionVisionMision />
-    <SectionProduct />
+    {/* <SectionProduct /> */}
     <SectionPartner />
     <SectionSemangat />
     <SectionContact address="Jln Kebagusan Raya No.102 Jagakarsa,<br />Jakarta Selatan" email="cs@glek.id" phone="+62 8577-9155-550" />
