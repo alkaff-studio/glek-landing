@@ -36,6 +36,7 @@
             }
 
             .icon {
+                flex-shrink: 0;
                 width: 60px;
                 height: 60px;
                 display: flex;
@@ -133,4 +134,28 @@
         }
     }
 
+}
+
+@include media-breakpoint-down(sm) {
+
+    #section-partner {
+        padding-top: 5em;
+
+        .section-element {
+            .element-1 {
+                top: -10em;
+            }
+        }
+
+        .nav-partners {
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-left: 64px;
+        }
+
+        .partner-content {
+            padding-bottom: 10em;
+        }
+
+    }
 }
