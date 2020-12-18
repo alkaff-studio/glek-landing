@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 import SectionJumbotron from "../sections/jumbotron"
 import SectionAbout from "../sections/about"
 import SectionVisionMision from "../sections/vision"
+import SectionProduct from "../sections/product"
 
 const IndexPage: React.FC = () => (
   <Layout invertButton={true}>
@@ -13,6 +14,7 @@ const IndexPage: React.FC = () => (
     <SectionJumbotron />
     <SectionAbout />
     <SectionVisionMision />
+    <SectionProduct />
   </Layout>
 )
 

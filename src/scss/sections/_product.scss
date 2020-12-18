@@ -1,0 +1,22 @@
+#section-product {
+    position: relative;
+    background: url('../../images/bg-product.png') no-repeat top center;
+    background-size: 100%;
+    padding-bottom: 90px;
+
+    .section-element-1,
+    .section-element-2 {
+        position: absolute;
+        width: 60px;
+    }
+
+    .section-element-1 {
+        left: 0;
+        bottom: 0;
+    }
+
+    .section-element-2 {
+        right: 0;
+        top: 0;
+    }
+}
