@@ -2,9 +2,9 @@ import React from 'react'
 
 const SectionVisionMision = () => (
     <section id="section-vision-mission" className="section">
-        <div className="container-fluid">
+        <div className="container-fluid px-0">
             <div className="row no-gutters">
-                <div className="col-12 col-md-6">
+                <div className="col-12 col-md-6 order-last order-md-first">
                     <div className="section-content ml-md-5 pl-md-5">
                         <div className="info-section">
                             <h6 className="typo-display-sm-bold typo-gray-body">Visi</h6>
@@ -32,7 +32,7 @@ const SectionVisionMision = () => (
                         </div>
                     </div>
                 </div>
-                <div className="col-12 col-md-6">
+                <div className="col-12 col-md-6 order-first order-md-last">
                     <div className="section-img"></div>
                 </div>
             </div>

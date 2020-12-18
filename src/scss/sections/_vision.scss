@@ -48,3 +48,20 @@
         background-size: 100%;
     }
 }
+
+@include media-breakpoint-down(sm) {
+
+    #section-vision-mission {
+        .section-img {
+            height: 600px;
+            background-size: contain;
+            background-position: top right;
+        }
+        .section-content {
+            padding-top: 1em;
+            padding-bottom: 1em;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+    }
+}
