@@ -1,0 +1,33 @@
+#section-contact {
+    position: relative;
+
+    .list-contact {
+        li {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.71;
+            color: $grayscaleLabel;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+
+            .icon {
+                flex-shrink: 0;
+                width: 24px;
+                height: 24px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 16px;
+                font-size: 24px;
+            }
+        }
+    }
+
+    .map-container {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        box-shadow: 0 14px 23px 0 rgba(28, 37, 44, 0.1);
+    }
+}

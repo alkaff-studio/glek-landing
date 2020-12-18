@@ -9,6 +9,7 @@ import SectionVisionMision from "../sections/vision"
 import SectionProduct from "../sections/product"
 import SectionPartner from "../sections/partner"
 import { SectionSemangat } from "../sections/semangat"
+import { SectionContact } from "../sections/contact"
 
 const IndexPage: React.FC = () => (
   <Layout invertButton={true}>
@@ -19,6 +20,7 @@ const IndexPage: React.FC = () => (
     <SectionProduct />
     <SectionPartner />
     <SectionSemangat />
+    <SectionContact address="Jln Kebagusan Raya No.102 Jagakarsa,<br />Jakarta Selatan" email="cs@glek.id" phone="+62 8577-9155-550" />
   </Layout>
 )
 
