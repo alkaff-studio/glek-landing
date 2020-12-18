@@ -38,3 +38,38 @@
         }
     }
 }
+
+@include media-breakpoint-down('sm') {
+
+    #section-jumbotron {
+
+        .jumbotron-splash {
+            height: 400px;
+            background-size: contain;
+        }
+
+        .jumbotron-container {
+            padding-top: 1em;
+            padding-bottom: 1em;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .jumbotron-element {
+
+            .element-1 {
+                width: 60px;
+                top: 17em;
+            }
+
+            .element-2 {
+                width: 100px;
+                left: auto;
+                right: -3em;
+                top: 30em;
+                bottom: auto;
+            }
+        }
+    }
+
+}
