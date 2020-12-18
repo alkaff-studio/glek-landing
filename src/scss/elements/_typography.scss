@@ -4,7 +4,7 @@ $typoFontWeights: (
 ) !default;
 $typoLineHeights: (
     'display-lg': 66px,
-    'display-md': 50px,
+    'display-md': 1.46,
     'display-sm': 44px,
     'text-lg': 38px,
     'text-md': 34px,
@@ -30,6 +30,26 @@ $typoLetterSpacings: (
     'text-xs': .75px
 ) !default;
 
+$typoColors: (
+    'primary': $colorPrimary,
+    'primary-dark': $colorPrimaryDark,
+    'primary-light': $colorPrimaryLight,
+    'secondary': $colorSecondary,
+    'secondary-dark': $colorSecondaryDark,
+    'secondary-light': $colorSecondaryLight,
+    'accent': $colorAccent,
+    'accent-dark': $colorAccentDark,
+    'accent-light': $colorAccentLight,
+    'gray-title-active': $grayscaleTitleActive,
+    'gray-body': $grayscaleBody,
+    'gray-label': $grayscaleLabel,
+    'gray-placeholder': $grayscalePlaceholder,
+    'gray-line': $grayscaleLine,
+    'gray-input-background': $grayscaleInputBackground,
+    'gray-background': $grayscaleBackground,
+    'gray-off-white': $grayscaleOffWhite
+) !default;
+
 @function emptyTypoWeight( $val:null ) {
     @if( $val == null or $val == '' ) {
         @return '';
@@ -38,16 +58,19 @@ $typoLetterSpacings: (
     }
 }
 
-@each $key, $val in $typoLineHeights {
-    .typo-#{$key}{
-        line-height: $val;
-        font-size: map-get( $typoFontSizes, $key );
-        letter-spacing: map-get( $typoLetterSpacings, $key );
-    }
-
-    @each $name, $weight in $typoFontWeights {
+@each $name, $weight in $typoFontWeights {
+    @each $key, $val in $typoLineHeights {
         .typo-#{$key}#{emptyTypoWeight($name)} {
+            line-height: $val;
+            font-size: map-get( $typoFontSizes, $key );
+            letter-spacing: map-get( $typoLetterSpacings, $key );
             font-weight: $weight;
         }
+    }
+}
+
+@each $name, $val in $typoColors {
+    .typo-#{$name} {
+        color: $val;
     }
 }

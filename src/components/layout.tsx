@@ -24,7 +24,7 @@ const Layout = ({children, showButton, invertButton}:Props) => {
 
 	return (
 		<>
-			<Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+			<Header siteTitle={data.site.siteMetadata?.title || `Title`} buttonWhite={invertButton} />
 			<main>{children}</main>
 			<Footer />
 		</>

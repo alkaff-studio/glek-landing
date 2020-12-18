@@ -1,0 +1,40 @@
+#section-jumbotron {
+    position: relative;
+
+    .jumbotron-splash {
+        background: url('../../images/img-jumbotron.png') no-repeat top right;
+        background-size: 110%;
+        display: block;
+        height: 100%;
+    }
+
+    .jumbotron-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .jumbotron-container {
+        padding-top: 22em;
+        padding-bottom: 22em;
+    }
+
+    .jumbotron-element {
+
+        .element-1,
+        .element-2 {
+            position: absolute;
+        }
+
+        .element-1 {
+            left: 0;
+            top: 8em;
+            width: 90px;
+        }
+
+        .element-2 {
+            width: 130px;
+            left: 54px;
+            bottom: 5em;
+        }
+    }
+}
